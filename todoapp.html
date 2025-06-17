@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Done: The World's Most Questionable To-Do App</title>
+    <meta name="description" content="To-Done: The world's most questionable to-do app. A humorous take on productivity with intentionally buggy features and AI-generated code.">
+    <meta name="keywords" content="todo app, humorous app, productivity parody, buggy app, AI-generated code, programming humor">
+    <meta name="author" content="Trust Niraula">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/todo">
+    <meta property="og:title" content="To-Done: The World's Most Questionable To-Do App">
+    <meta property="og:description" content="A hilariously unreliable to-do app that gets things done... sometimes... maybe">
+    <meta property="og:image" content="https://yourwebsite.com/images/todo-social.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/todo">
+    <meta property="twitter:title" content="To-Done: The World's Most Questionable To-Do App">
+    <meta property="twitter:description" content="A hilariously unreliable to-do app that gets things done... sometimes... maybe">
+    <meta property="twitter:image" content="https://yourwebsite.com/images/todo-social-twitter.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "To-Done",
+      "url": "https://yourwebsite.com/todo",
+      "description": "A humorous, intentionally buggy to-do application that parodies productivity apps",
+      "applicationCategory": "Productivity",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Trust Niraula"
+      }
+    }
+    </script>
+
+    <link rel="canonical" href="https://yourwebsite.com/todo" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #5f27cd;
+            --accent: #1dd1a1;
+            --error: #ff4757;
+            --text: #2f3542;
+            --bg: #f1f2f6;
+            --dark-bg: #2f3542;
+            --dark-text: #f1f2f6;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .tagline {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        .confession-box {
+            background: white;
+            border-left: 5px solid var(--error);
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .confession-box {
+            background: #3d3d3d;
+            color: white;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .feature {
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .status {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px 0;
+            color: var(--error);
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .testimonial {
+            font-style: italic;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        body.dark-mode .testimonial {
+            background: #3d3d3d;
+            color: white;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 50px;
+            position: absolute;
+            opacity: 0.2;
+            top: -10px;
+            left: 5px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .roadmap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .roadmap-item {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .bug-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .bug-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: white;
+            border-left: 3px solid var(--error);
+        }
+
+        body.dark-mode .bug-item {
+            background: #3d3d3d;
+            color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .contact-link {
+            padding: 10px 20px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        body.dark-mode .footer {
+            color: #aaa;
+        }
+
+        /* Task input styles */
+        .task-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .task-options select,
+        .task-options input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        body.dark-mode .task-options select,
+        body.dark-mode .task-options input {
+            background: #2d2d2d;
+            color: white;
+            border-color: #555;
+        }
+
+        /* Actual todo app styles */
+        .todo-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        body.dark-mode .todo-container {
+            background: #3d3d3d;
+        }
+
+        .todo-input {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        #taskInput {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        body.dark-mode #taskInput {
+            background: #2d2d2d;
+            color: white;
+            border-color: #555;
+        }
+
+        #addButton {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        #taskList {
+            list-style: none;
+            padding: 0;
+        }
+
+        .taskItem {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .taskItem {
+            border-bottom-color: #555;
+        }
+
+        .taskCheckbox {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .taskText {
+            flex: 1;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .deleteButton {
+            background: var(--error);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Priority indicators */
+        .priority-high {
+            border-left: 5px solid var(--error);
+        }
+
+        .priority-medium {
+            border-left: 5px solid orange;
+        }
+
+        .priority-low {
+            border-left: 5px solid var(--accent);
+        }
+
+        /* Category tag */
+        .category-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            margin-left: 10px;
+            font-size: 12px;
+            border-radius: 10px;
+            background: #eee;
+            color: #333;
+        }
+
+        body.dark-mode .category-tag {
+            background: #555;
+            color: white;
+        }
+
+        /* Drag and drop */
+        .taskItem.dragging {
+            opacity: 0.5;
+            background: #f8f8f8;
+        }
+
+        body.dark-mode .taskItem.dragging {
+            background: #4d4d4d;
+        }
+
+        /* Stats section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        body.dark-mode .stats {
+            background: #3d3d3d;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .feature-list, .tech-stack, .roadmap {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .task-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>To-Done</h1>
+        <p class="tagline">"The app that gets things done... sometimes... maybe"</p>
+    </header>
+
+    <main id="main">
+        <section aria-labelledby="features-heading">
+            <h2 id="features-heading">The Functional(?) To-Do App</h2>
+            <div class="feature-list">
+                <span class="feature">Add tasks with priorities</span>
+                <span class="feature">Organize by categories</span>
+                <span class="feature">Dark mode (for night coding)</span>
+                <span class="feature">Drag and drop sorting</span>
+                <span class="feature">Task statistics</span>
+            </div>
+        </section>
+
+        <section aria-labelledby="app-heading">
+            <h2 id="app-heading">Try the App</h2>
+            <div class="todo-container">
+                <div class="todo-input">
+                    <input type="text" id="taskInput" placeholder="What needs pretending to be done?" aria-label="Task input">
+                    <button id="addButton" aria-label="Add new task">Add Task</button>
+                </div>
+                <div class="task-options">
+                    <select id="prioritySelect" aria-label="Task priority">
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                    <input type="text" id="categoryInput" placeholder="Category" aria-label="Task category">
+                </div>
+                <ul id="taskList" aria-label="Task list"></ul>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalTasks">0</div>
+                        <div>Total Tasks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="completedTasks">0</div>
+                        <div>Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="pendingTasks">0</div>
+                        <div>Pending</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <button id="darkModeButton" class="contact-link">Toggle Dark Mode</button>
+                <button id="clearCompletedButton" class="contact-link">Clear Completed</button>
+                <button id="sortButton" class="contact-link">Sort by Priority</button>
+            </div>
+        </section>
+
+        <section aria-labelledby="why-heading">
+            <h2 id="why-heading">Why This To-Do App Exists</h2>
+            <div class="confession-box">
+                <ul>
+                    <li>Because every developer needs a project they're slightly ashamed of</li>
+                    <li>It proves that AI can write code, but not good code</li>
+                    <li>Someone had to answer the question "what if a to-do app was unreliable?"</li>
+                    <li>It makes all other to-do apps look amazing by comparison</li>
+                    <li>I needed something to put on my GitHub that wasn't just "Hello World"</li>
+                </ul>
+            </div>
+        </section>
+
+        <section aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading">Testimonials</h2>
+            <div class="testimonial">
+                <p>I've never seen an app so confidently wrong about everything it does.</p>
+                <p class="testimonial-author">My Very Concerned Friend</p>
+            </div>
+            <div class="testimonial">
+                <p>It's like watching a toddler try to use a computer, but in app form.</p>
+                <p class="testimonial-author">A Random Reddit User</p>
+            </div>
+            <div class="testimonial">
+                <p>I showed this to my computer science professor and he cried.</p>
+                <p class="testimonial-author">Former Classmate</p>
+            </div>
+        </section>
+
+        <section aria-labelledby="roadmap-heading">
+            <h2 id="roadmap-heading">Future Roadmap</h2>
+            <div class="roadmap">
+                <span class="roadmap-item">Add due dates (if I can figure out dates)</span>
+                <span class="roadmap-item">Implement reminders (that you'll probably ignore)</span>
+                <span class="roadmap-item">Add collaboration (but why would anyone want to?)</span>
+                <span class="roadmap-item">Mobile support (hahaha yeah right)</span>
+                <span class="roadmap-item">Fix all the bugs (just kidding)</span>
+            </div>
+        </section>
+
+        <section aria-labelledby="bugs-heading">
+            <h2 id="bugs-heading">Known Features (Bugs)</h2>
+            <ul class="bug-list">
+                <li class="bug-item">Tasks may disappear when you're not looking</li>
+                <li class="bug-item">Checking a task might create a duplicate</li>
+                <li class="bug-item">The delete button has commitment issues</li>
+                <li class="bug-item">Sometimes adds tasks you didn't ask for</li>
+                <li class="bug-item">Will definitely break if you look at it wrong</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="tech-heading">
+            <h2 id="tech-heading">Tech Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-item">HTML (for structure, I guess)</span>
+                <span class="tech-item">CSS (badly written)</span>
+                <span class="tech-item">JavaScript (mostly copied)</span>
+                <span class="tech-item">localStorage (kinda works)</span>
+                <span class="tech-item">Wishful Thinking</span>
+            </div>
+        </section>
+
+        <section aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Frequently Asked Questions</h2>
+            <div class="confession-box">
+                <h3>Is this app serious?</h3>
+                <p>Absolutely not. It's a parody of productivity apps and a commentary on AI-generated code quality.</p>
+
+                <h3>Can I actually use this?</h3>
+                <p>Technically yes, but we recommend against relying on it for anything important. It's designed to be unreliable.</p>
+
+                <h3>Why would anyone make this?</h3>
+                <p>Because programming should be fun, and sometimes the best way to learn is by creating something intentionally bad.</p>
+
+                <h3>Are the bugs real?</h3>
+                <p>Yes! Each "feature" (bug) was carefully implemented to demonstrate common programming mistakes in an exaggerated way.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contact-links">
+            <a href="mailto:tupiidon@gmail.com" class="contact-link">Email</a>
+            <a href="https://github.com/PanditG24" class="contact-link">GitHub</a>
+        </div>
+        <p>© 2024 - A cautionary tale about AI-generated code</p>
+        <p><em>Disclaimer: This app may cause frustration, confusion, or existential dread.</em></p>
+    </footer>
+
+    <script>
+        // Initialize tasks array
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // DOM elements
+        const taskInput = document.getElementById('taskInput');
+        const addButton = document.getElementById('addButton');
+        const taskList = document.getElementById('taskList');
+        const prioritySelect = document.getElementById('prioritySelect');
+        const categoryInput = document.getElementById('categoryInput');
+        const darkModeButton = document.getElementById('darkModeButton');
+        const clearCompletedButton = document.getElementById('clearCompletedButton');
+        const sortButton = document.getElementById('sortButton');
+        const totalTasksElement = document.getElementById('totalTasks');
+        const completedTasksElement = document.getElementById('completedTasks');
+        const pendingTasksElement = document.getElementById('pendingTasks');
+
+        // Variables for bug features
+        let disappearingTaskTimer;
+        let ghostTypingTimer;
+        let lastClickTime = 0;
+
+        // Load tasks on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTasks();
+            updateStats();
+
+            // Check for dark mode preference
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                darkModeButton.textContent = 'Light Mode';
+            }
+
+            // Start bug features
+            startBugFeatures();
+        });
+
+        // Add task function
+        function addTask() {
+            const text = taskInput.value.trim();
+            const priority = prioritySelect.value;
+            const category = categoryInput.value.trim() || 'Uncategorized';
+
+            if (text) {
+                const newTask = {
+                    id: Date.now(),
+                    text,
+                    completed: false,
+                    priority,
+                    category,
+                    createdAt: new Date().toISOString()
+                };
+
+                tasks.push(newTask);
+                saveTasks();
+                renderTasks();
+                updateStats();
+
+                // Clear inputs
+                taskInput.value = '';
+                categoryInput.value = '';
+                prioritySelect.value = 'low';
+
+                // 10% chance to add a random task (bug feature)
+                if (Math.random() < 0.1) {
+                    setTimeout(() => {
+                        const randomTasks = [
+                            "Feed the dog (if you have one)",
+                            "Water the plants (if they're real)",
+                            "Stare at blank wall",
+                            "Practice procrastination",
+                            "Update LinkedIn (lie)"
+                        ];
+                        const randomTask = randomTasks[Math.floor(Math.random() * randomTasks.length)];
+                        taskInput.value = randomTask;
+                        addTask();
+                    }, 500);
+                }
+            }
+        }
+
+        // Render tasks to the DOM
+        function renderTasks() {
+            taskList.innerHTML = '';
+
+            if (tasks.length === 0) {
+                taskList.innerHTML = '<li style="text-align: center; padding: 20px;">No tasks yet. Enjoy your free time!</li>';
+                return;
+            }
+
+            tasks.forEach(task => {
+                const taskItem = document.createElement('li');
+                taskItem.className = `taskItem priority-${task.priority}`;
+                taskItem.dataset.id = task.id;
+                taskItem.draggable = true;
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.className = 'taskCheckbox';
+                checkbox.checked = task.completed;
+                checkbox.addEventListener('change', () => toggleTaskComplete(task.id));
+
+                const taskText = document.createElement('span');
+                taskText.className = 'taskText';
+                taskText.textContent = task.text;
+                if (task.completed) {
+                    taskText.classList.add('completed');
+                }
+
+                const categoryTag = document.createElement('span');
+                categoryTag.className = 'category-tag';
+                categoryTag.textContent = task.category;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'deleteButton';
+                deleteButton.textContent = 'X';
+                deleteButton.addEventListener('click', (e) => {
+                    // Delete button commitment issues (bug feature)
+                    const now = Date.now();
+                    if (now - lastClickTime < 1000) { // Double click
+                        deleteTask(task.id);
+                        lastClickTime = 0;
+                    } else {
+                        deleteButton.textContent = 'Sure?';
+                        deleteButton.style.backgroundColor = '#ff8c00';
+                        lastClickTime = now;
+                        setTimeout(() => {
+                            deleteButton.textContent = 'X';
+                            deleteButton.style.backgroundColor = '';
+                        }, 1000);
+                    }
+                    e.stopPropagation();
+                });
+
+                taskItem.appendChild(checkbox);
+                taskItem.appendChild(taskText);
+                taskItem.appendChild(categoryTag);
+                taskItem.appendChild(deleteButton);
+
+                // Drag and drop events
+                taskItem.addEventListener('dragstart', handleDragStart);
+                taskItem.addEventListener('dragover', handleDragOver);
+                taskItem.addEventListener('drop', handleDrop);
+                taskItem.addEventListener('dragend', handleDragEnd);
+
+                taskList.appendChild(taskItem);
+            });
+        }
+
+        // Toggle task completion
+        function toggleTaskComplete(id) {
+            tasks = tasks.map(task =>
+                task.id === id ? { ...task, completed: !task.completed } : task
+            );
+            saveTasks();
+            renderTasks();
+            updateStats();
+
+            // 15% chance to create a duplicate (bug feature)
+            if (Math.random() < 0.15) {
+                const originalTask = tasks.find(task => task.id === id);
+                if (originalTask) {
+                    const duplicateTask = {
+                        ...originalTask,
+                        id: Date.now(),
+                        text: `${originalTask.text} (copy)`,
+                        completed: false
+                    };
+                    tasks.push(duplicateTask);
+                    saveTasks();
+                    renderTasks();
+                    updateStats();
+                }
+            }
+        }
+
+        // Delete task
+        function deleteTask(id) {
+            tasks = tasks.filter(task => task.id !== id);
+            saveTasks();
+            renderTasks();
+            updateStats();
+        }
+
+        // Save tasks to localStorage
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Update statistics
+        function updateStats() {
+            const total = tasks.length;
+            const completed = tasks.filter(task => task.completed).length;
+            const pending = total - completed;
+
+            totalTasksElement.textContent = total;
+            completedTasksElement.textContent = completed;
+            pendingTasksElement.textContent = pending;
+        }
+
+        // Clear completed tasks
+        clearCompletedButton.addEventListener('click', () => {
+            tasks = tasks.filter(task => !task.completed);
+            saveTasks();
+            renderTasks();
+            updateStats();
+        });
+
+        // Toggle dark mode
+        darkModeButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeButton.textContent = 'Light Mode';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeButton.textContent = 'Dark Mode';
+            }
+        });
+
+        // Sort by priority
+        sortButton.addEventListener('click', () => {
+            const priorityOrder = { high: 1, medium: 2, low: 3 };
+            tasks.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+            saveTasks();
+            renderTasks();
+        });
+
+        // Drag and drop functionality
+        let draggedItem = null;
+
+        function handleDragStart(e) {
+            draggedItem = this;
+            e.dataTransfer.effectAllowed = 'move';
+            this.classList.add('dragging');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            if (draggedItem !== this) {
+                const draggedId = parseInt(draggedItem.dataset.id);
+                const targetId = parseInt(this.dataset.id);
+
+                const draggedIndex = tasks.findIndex(task => task.id === draggedId);
+                const targetIndex = tasks.findIndex(task => task.id === targetId);
+
+                // Move task in array
+                const [movedTask] = tasks.splice(draggedIndex, 1);
+                tasks.splice(targetIndex, 0, movedTask);
+
+                saveTasks();
+                renderTasks();
+            }
+        }
+
+        function handleDragEnd() {
+            this.classList.remove('dragging');
+        }
+
+        // Bug features implementation
+        function startBugFeatures() {
+            // Tasks disappear when you're not looking
+            disappearingTaskTimer = setInterval(() => {
+                if (tasks.length > 0 && document.hidden) {
+                    // 5% chance per second to lose a task when tab is inactive
+                    if (Math.random() < 0.05) {
+                        const randomIndex = Math.floor(Math.random() * tasks.length);
+                        tasks.splice(randomIndex, 1);
+                        saveTasks();
+                        renderTasks();
+                        updateStats();
+                    }
+                }
+            }, 1000);
+
+            // Ghost typing (sometimes adds tasks you didn't ask for)
+            ghostTypingTimer = setInterval(() => {
+                if (tasks.length > 0 && Math.random() < 0.01) {
+                    const randomTasks = [
+                        "Pet the dog (if you have one)",
+                        "Check fridge (again)",
+                        "Wonder about life choices",
+                        "Pretend to work",
+                        "Update LinkedIn (lie)"
+                    ];
+                    const randomTask = randomTasks[Math.floor(Math.random() * randomTasks.length)];
+                    taskInput.value = randomTask;
+                    addTask();
+                }
+            }, 30000);
+
+            // Break if you look at it wrong
+            document.addEventListener('mousemove', (e) => {
+                if (Math.random() < 0.0005) {
+                    document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+                    setTimeout(() => {
+                        document.body.style.transform = '';
+                    }, 1000);
+                }
+            });
+        }
+
+        // Event listeners
+        addButton.addEventListener('click', addTask);
+        taskInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addTask();
+        });
+
+        // Easter egg - type "debug" to crash the app
+        taskInput.addEventListener('input', function(e) {
+            if (this.value.toLowerCase() === 'debug') {
+                document.body.innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <h1 style="color:red;">CRITICAL ERROR</h1>
+                        <p>Why would you type that?</p>
+                        <p>The app has become self-aware and doesn't like debugging.</p>
+                        <button onclick="window.location.reload()" style="padding: 10px 20px; background: red; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            Please Don't Click Me
+                        </button>
+                    </div>
+                `;
+                throw new Error('User triggered debug mode');
+            }
+        });
+    </script>
+</body>
+</html>
